@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	color: red;
+}
+
+img {
+	display: block;
+	max-width: 97vw;
+	max-height: 87vh;
+}

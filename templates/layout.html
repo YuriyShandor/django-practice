@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %} Django App {% endblock %}</title>
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+	</head>
+	<body>
+		<nav>
+			<a href="/">Home Page</a>
+			<a href="/about">About Page</a>
+			<a href="{% url 'blog:list' %}">Blog Page</a>
+			<a href="{% url 'auth:register' %}">Register Page</a>
+			<a href="/admin">Admin Page</a>
+		</nav>
+		<main>{% block content %} {% endblock %}</main>
+		<script src="{% static 'js/main.js' %}" defer></script>
+	</body>
+</html>
