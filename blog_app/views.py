@@ -10,3 +10,7 @@ def posts_list(request):
 def single_post_page(request, slug):
     post = Post.objects.get(slug=slug)
     return render(request, 'blog/single_post_page.html', {'post': post})
+
+
+def new_post_page(request):
+    return render(request, 'blog/new_post_page.html')

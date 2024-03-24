@@ -14,6 +14,10 @@
 			<a href="{% url 'blog:list' %}">Blog Page</a>
 			<a href="{% url 'auth:register' %}">Register Page</a>
 			<a href="{% url 'auth:login' %}">Login Page</a>
+            <form action="{% url 'auth:logout' %}" method="post">
+                {% csrf_token %}
+                <button>Logout</button>
+            </form>
 			<a href="/admin">Admin Page</a>
 		</nav>
 		<main>{% block content %} {% endblock %}</main>
