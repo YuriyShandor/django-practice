@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 
-{% block title %} Register Page {% endblock %}
+{% block title %} Login Page {% endblock %}
 
 {% block content %}
     <div class="register-page-content">
-        <h1>Register a New User</h1>
-        <form action="/auth/register/" method=post>
+        <h1>Login Page</h1>
+        <form action="/auth/login/" method=post>
             {% csrf_token %}
             {{ form }}
             <button>Submit</button>

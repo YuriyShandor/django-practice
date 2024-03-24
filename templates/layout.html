@@ -13,6 +13,7 @@
 			<a href="/about">About Page</a>
 			<a href="{% url 'blog:list' %}">Blog Page</a>
 			<a href="{% url 'auth:register' %}">Register Page</a>
+			<a href="{% url 'auth:login' %}">Login Page</a>
 			<a href="/admin">Admin Page</a>
 		</nav>
 		<main>{% block content %} {% endblock %}</main>
