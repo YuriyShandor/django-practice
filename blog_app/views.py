@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib.auth.decorators import login_required
 from .forms import CreatePost
@@ -16,5 +16,13 @@ def single_post_page(request, slug):
 
 @login_required(login_url="auth:login")
 def new_post_page(request):
-    form = CreatePost()
+    if request.method == 'POST':
+        form = CreatePost(request.POST, request.FILES)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author_id = request.user
+            new_post.save()
+            return redirect('blog:list')
+    else:
+        form = CreatePost()
     return render(request, 'blog/new_post_page.html', {'form': form})
