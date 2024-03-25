@@ -12,14 +12,18 @@
 			<a href="/">Home Page</a>
 			<a href="/about">About Page</a>
 			<a href="{% url 'blog:list' %}">Blog Page</a>
-            <a href="{% url 'blog:new_post' %}">New Blog Post Page</a>
-			<a href="{% url 'auth:register' %}">Register Page</a>
-			<a href="{% url 'auth:login' %}">Login Page</a>
-            <form action="{% url 'auth:logout' %}" method="post">
-                {% csrf_token %}
-                <button>Logout</button>
-            </form>
-			<a href="/admin">Admin Page</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'blog:new_post' %}">New Blog Post Page</a>
+                <a href="/admin">Admin Page</a>
+                <form action="{% url 'auth:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button>Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'auth:register' %}">Register Page</a>
+			    <a href="{% url 'auth:login' %}">Login Page</a>
+            {% endif %}
 		</nav>
 		<main>{% block content %} {% endblock %}</main>
 		<script src="{% static 'js/main.js' %}" defer></script>
