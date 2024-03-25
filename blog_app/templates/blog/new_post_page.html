@@ -5,5 +5,10 @@
 {% block content %}
     <div class="new-post-page-content">
         <h1>New Post Page</h1>
+        <form action="{% url 'blog:new_post' %}" method="post" enctype=multipart/form-data>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Create New Post</button>
+        </form>
     </div>
 {% endblock %}
