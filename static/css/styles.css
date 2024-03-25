@@ -11,3 +11,10 @@ img {
 	max-width: 97vw;
 	max-height: 87vh;
 }
+
+nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}

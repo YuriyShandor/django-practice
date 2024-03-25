@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.contrib.auth.decorators import login_required
 
 
 def posts_list(request):
@@ -12,5 +13,6 @@ def single_post_page(request, slug):
     return render(request, 'blog/single_post_page.html', {'post': post})
 
 
+@login_required(login_url="auth:login")
 def new_post_page(request):
     return render(request, 'blog/new_post_page.html')

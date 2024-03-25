@@ -14,9 +14,6 @@
                         {{ post.title }}
                     </a>
                 </h2>
-                <a href="{% url 'blog:single_post' slug=post.slug %}">
-                    <img src="{{ post.banner.url }}" alt="">
-                </a>
                 <p>{{ post.created_at }}</p>
                 <p>{{ post.content }}</p>
             </div>
