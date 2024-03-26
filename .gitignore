@@ -4,3 +4,7 @@
 /media/*
 /givetips/env_settings.py
 /images/*
+
+/core/__pycache__/
+/auth_app/__pycache__/
+/blog_app/__pycache__/

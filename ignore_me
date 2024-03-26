@@ -8,4 +8,9 @@ py manage.py createsuperuser
 py manage.py makemigrations
 py manage.py migrate
 
+py manage.py migrate --run-syncdb
+
+py manage.py migrate auth_app
+py manage.py migrate blog_app
+
 py manage.py loaddata fixtures/initial_data.json

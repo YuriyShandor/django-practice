@@ -20,7 +20,7 @@ def new_post_page(request):
         form = CreatePost(request.POST, request.FILES)
         if form.is_valid():
             new_post = form.save(commit=False)
-            new_post.author_id = request.user
+            new_post.author = request.user
             new_post.save()
             return redirect('blog:list')
     else:
